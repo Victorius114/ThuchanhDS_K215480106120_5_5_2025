@@ -1,0 +1,37 @@
+Bài 1. Sử dụng dữ liệu từ nguồn: https://www.kaggle.com/competitions/titanic/data
+Yêu cầu:
++ Đối với cột age, thay vì chỉ điền giá trị trung bình hoặc trung vị, xây dựng một mô hình hồi quy tuyến tính (Linear Regression) để dự đoán giá trị thiếu dựa trên các đặc trưng khác như pclass, sex, sibsp, và parch.
++ Đối với cột embarked, sử dụng thuật toán K-Nearest Neighbors (KNN) để điền giá trị thiếu dựa trên các đặc trưng liên quan.
++ Xử lý cột cabin (thường có nhiều giá trị thiếu): trích xuất thông tin từ ký tự đầu tiên của cabin (ví dụ: 'C', 'B') để tạo cột mới deck, sau đó mã hóa cột này.
++ Tạo cột family_size như bài gốc (tổng sibsp + parch + 1).
++ Tạo cột is_alone (1 nếu hành khách đi một mình, 0 nếu đi cùng gia đình).
++ Trích xuất danh xưng (title) từ cột name (ví dụ: Mr, Mrs, Miss) và tạo cột title. Gộp các danh xưng hiếm (như Dr, Rev) thành nhóm "Rare".
++ Tạo cột fare_per_person bằng cách chia fare cho family_size để thể hiện giá vé trung bình mỗi người.
++ Vẽ biểu đồ boxplot để kiểm tra phân phối của fare_per_person theo pclass và survived.
++ Sử dụng kiểm định thống kê (ví dụ: t-test hoặc ANOVA) để kiểm tra xem fare_per_person có khác biệt đáng kể giữa các nhóm survived (sống sót hay không).
++ Xây dựng một pipeline xử lý dữ liệu (sử dụng sklearn.pipeline) để tự động hóa quá trình làm sạch, mã hóa, và chuẩn hóa dữ liệu.
++ Huấn luyện mô hình Random Forest để dự đoán survived dựa trên các đặc trưng đã xử lý và tạo mới.
++ Sử dụng Grid Search hoặc Random Search để tối ưu hóa siêu tham số của mô hình (ví dụ: n_estimators, max_depth).
++ Đánh giá mô hình bằng cross-validation (5-fold) và báo cáo các chỉ số: accuracy, precision, recall, F1-score, và ROC-AUC.
++ Tạo biểu đồ feature importance để xác định các đặc trưng quan trọng nhất ảnh hưởng đến khả năng sống sót.
+
+Bài 4: Phân tích dữ liệu môi trường từ cảm biến IoT
+Mô tả: Giả định bạn làm việc cho một công ty môi trường, thu thập dữ liệu từ các cảm biến IoT đo chất lượng không khí tại một thành phố. Dữ liệu bao gồm: thời gian, vị trí (tọa độ x, y), nồng độ PM2.5, nhiệt độ, độ ẩm, và tốc độ gió. Dữ liệu này không có sẵn và bạn cần mô phỏng.
+Dữ liệu:https://drive.google.com/file/d/1_UKvFZwRSb8gwqNnAkz2pGmgGnZOq6nO/view?usp=sharing
+Yêu cầu:
++ Sử dụng thuật toán DBSCAN để phân cụm các khu vực dựa trên tọa độ và nồng độ PM2.5, xác định các "điểm nóng ô nhiễm".
++ Tính toán chỉ số "rủi ro ô nhiễm" cho mỗi khu vực dựa trên PM2.5 trung bình và tần suất vượt ngưỡng an toàn (giả định ngưỡng là 50 µg/m³).
++ Tạo đặc trưng "chỉ số thời tiết bất lợi" bằng cách kết hợp nhiệt độ, độ ẩm, và tốc độ gió (tự định nghĩa công thức, ví dụ: độ ẩm cao + gió yếu = bất lợi).
++ Tạo đặc trưng "xu hướng ô nhiễm" bằng cách tính độ dốc của PM2.5 trong 24 giờ trước đó cho mỗi vị trí.
++ Xây dựng mô hình LSTM (Long Short-Term Memory) để dự đoán nồng độ PM2.5 trong 6 giờ tới tại một vị trí cụ thể, sử dụng dữ liệu lịch sử (24 giờ trước).
++ Đánh giá mô hình bằng RMSE và vẽ biểu đồ so sánh giá trị thực tế và dự đoán.
+
+Bài 6: Phân tích dữ liệu giao thông đô thị
+Mô tả: Bạn được giao nhiệm vụ phân tích dữ liệu giao thông giả định tại một thành phố lớn. Dữ liệu bao gồm: thời gian, vị trí (tọa độ), loại phương tiện (xe máy, ô tô, xe buýt), tốc độ trung bình, và mật độ giao thông (thấp, trung bình, cao).
+Dữ liệu: https://drive.google.com/file/d/1TxAPzKz-AC0322DKFvsR6WYiRb4e9ZvO/view?usp=sharing
+Tự sinh dữ liệu cho 5000 bản ghi, Dữ liệu bao gồm: thời gian, vị trí (tọa độ), loại phương tiện (xe máy, ô tô, xe buýt), tốc độ trung bình, và mật độ giao thông (thấp, trung bình, cao).
++ Xác định các "điểm tắc nghẽn" bằng cách phân cụm dữ liệu (sử dụng K-Means) dựa trên vị trí, thời gian, và mật độ giao thông.
++ Tính toán chỉ số "mức độ nghiêm trọng của tắc nghẽn" (tự định nghĩa, ví dụ: dựa trên mật độ cao và tốc độ thấp).
++ Tạo đặc trưng "giờ cao điểm" (1 nếu thời gian nằm trong khung giờ tắc nghẽn, 0 nếu không, tự giả định khung giờ).
++ Tạo đặc trưng "tỷ lệ xe lớn" (tỷ lệ ô tô và xe buýt so với tổng phương tiện tại một vị trí).
++ Xây dựng mô hình Gradient Boosting để dự đoán mật độ giao thông (phân loại: thấp, trung bình, cao) tại một vị trí và thời gian cụ thể.
