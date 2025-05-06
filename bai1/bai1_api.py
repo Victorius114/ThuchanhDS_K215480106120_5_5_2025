@@ -20,15 +20,14 @@ sau đó mã hóa cột này.
 
 import pandas as pd
 import numpy as np
-from PyQt5.QtCore.QProcess import StandardError
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
 from sklearn.preprocessing import StandardScaler, LabelEncoder
 
-train_data = pd.read_csv(r'train.csv')
-test_data = pd.read_csv(r'test.csv')
+train_data = pd.read_csv(r'bai1/train.csv')
+test_data = pd.read_csv(r'bai1/test.csv')
 
 # 1. Đối với cột age, thay vì chỉ điền giá trị trung bình hoặc trung vị, xây dựng một mô hình hồi quy tuyến tính
 # (Linear Regression) để dự đoán giá trị thiếu dựa trên các đặc trưng khác như pclass, sex, sibsp, và parch.
